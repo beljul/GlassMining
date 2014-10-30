@@ -171,6 +171,14 @@ for k = 1:K % For each crossvalidation fold
     Error(k) = sum(y_test(k)~=y_test_est(k)); % Count the number of errors
 end
 
+% Make a scatterplot of the data
+mfig('Synthetic data'); clf; hold all;
+Color = {'b', 'r', 'k', 'm', 'y', 'g', 'c'};
+for c = 1:C
+    plot(X_train(y_train==c-1,1), X_train(y_train==c-1,2), '.', 'Color', Color{c});
+end
+plot(X_test(:,1), X_test(:,2), 'kx');
+
 % Plot confusion matrix
 mfig('Confusion matrix');
 confmatplot(classNames(y_test), classNames(y_test_est));
