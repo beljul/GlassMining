@@ -2,10 +2,12 @@
 import
 attributeNames = fieldnames(data);
 attributeNames = attributeNames(2:10);
-M = 9
-X = data.all(:, 1:9)
+M = 9;
+X = data.all(:, 1:9);
+
 %% Binarized data
 [Xbinary,attributeNamesBin]=binarize(X,[2*ones(1,M)],attributeNames);
+
 %% Write into a file
 j = 1;
 for i = 1:(M*2)
